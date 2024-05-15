@@ -20,6 +20,27 @@ body {
 	font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+   position: relative
+}
+
+body::before {
+	content: '';
+	background: url(images/bg-pattern-top-mobile.svg);
+	width: 100vw;
+	min-height: 100vh;
+	position: absolute;
+	background-repeat: no-repeat;	
+}
+
+
+body::after {
+	content: '';
+	background: url(images/bg-pattern-bottom-mobile.svg);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;	
 }
 
 .container {
@@ -27,13 +48,13 @@ body {
 	margin: 100px 0;
 }
 
-.container h1 {
+.info-container h1 {
 	color: var(--very-dark-magenta);
 	text-align: center;
 	padding: 0 40px;
 }
 
-.container > p {
+.info-container > p {
 	text-align: center;
 	margin: 30px 0 40px;
 	color: var(--dark-grayish-magenta);
@@ -101,7 +122,98 @@ p {
 	color: var(--soft-pink);
 }
 
+@media screen and (min-width: 1200px) {
+	body::before {
+		content: '';
+		background: url(images/bg-pattern-top-desktop.svg);
+		width: 100%;
+		min-height: 100vh;
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+	
+	
+	body::after {
+		background: url(images/bg-pattern-bottom-desktop.svg);
+		background-repeat: no-repeat;
+		width: 100vw;
+		height: 100%;
+		margin-left: 30%;
+		background-size: cover;
+	}
 
+.container {
+	display: grid;
+	grid-template-areas: 
+	"one two"
+	"three three"
+	"four four";
+	align-items: center;
+    justify-items: center;
+}
 
+.info-container {
+	grid-area: one;
+	width: 50%;
+}
+
+.info-container h1 {
+	font-size: 2.5rem;
+	padding: 0;
+}   
+
+.info-container h1, .info-container p {
+	text-align: start;
+}
+
+.rated-cards {
+	grid-area: two;
+}
+
+.rate-card {
+	max-width: 700px;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.rate-card:nth-child(2) {
+	margin-left: 40px;
+}
+
+.rate-card:nth-child(3) {
+	margin-left: 80px;
+}
+
+.star-container {
+	margin: 0 30px;
+}
+
+.star-container > img {
+	margin: 0 5px;
+}
+
+.comment-cards {
+	grid-area: three;
+	display: flex;
+	gap: 25px;
+}
+
+.comment {
+	height: 250px;
+}
+
+.comment:nth-child(1) {
+	margin: 0;
+}
+
+.comment:nth-child(2) {
+	margin-top: 20px;
+}
+
+.comment:nth-child(3) {
+	margin-top: 40px;
+}
+
+}
 
 
